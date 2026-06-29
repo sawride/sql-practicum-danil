@@ -1,0 +1,7 @@
+.idea/**
+volumes/**
+
+queries/**
+
+practice/data/**
+practice/build_screenshots.py

@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:17.10
+    container_name: pg_sql_study
+    ports:
+      - "7777:5432"
+      - "5454:5432"
+    volumes:
+      - ./volumes/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=sql_study_db
+      - POSTGRES_USER=my_user
+      - POSTGRES_PASSWORD=1234
+    healthcheck:
+      test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
+      timeout: 5s
+      interval: 3s
+      retries: 8
